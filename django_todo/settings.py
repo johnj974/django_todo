@@ -26,8 +26,8 @@ SECRET_KEY = '#ii_6w1^ap%n=$2r+$z-8l+lkxp2fo99lv_&+g06-m#%=pd@x4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['simpler-django-todo.herokuapp.com',
-                 'simpler-django-todo.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME'),
+                 'localhost']
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #    }
 #}
 
-DATABASES = {'default': dj_database_url.parse("postgres://rprmqmmeofcpun:04c20a16e5e630869039a980e2639265f93204816b9f1a7d28a6cd39dce80f44@ec2-46-137-84-173.eu-west-1.compute.amazonaws.com:5432/da4ji9pmpbkfl9")}
+DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 
 # Password validation
